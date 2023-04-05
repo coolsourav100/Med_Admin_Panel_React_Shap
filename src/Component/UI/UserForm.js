@@ -14,10 +14,14 @@ const UserForm = () => {
 }
 const submitHandler=(e)=>{
   e.preventDefault();
-  cartCTX.addMed({id:Math.random(),...medData})
-  setMedData({
-    name:"" ,description:"",price:''
-  })
+  // cartCTX.addMed({id:Math.random(),...medData})
+  // setMedData({
+  //   name:"" ,description:"",price:''
+  // })
+  fetch('https://crudcrud.com/api/1e4c151410134db19ce4c4175c36e094',{
+    method:'POST',
+    body:JSON.stringify({id:Math.random(),...medData})
+  }).then(res=>res.json()).then(res=>console.log(res,'ADd med'))
 }
 console.log(medData)
   return (
